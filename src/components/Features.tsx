@@ -24,7 +24,7 @@ const Features: React.FC<FeaturesProps> = ({ className }) => {
     {
       icon: <Layers className="h-8 w-8 mb-4" />,
       title: 'Functional Simplicity',
-      description: 'Complexity is removed, leaving only what's necessary to serve the product's purpose.',
+      description: 'Complexity is removed, leaving only what\'s necessary to serve the product\'s purpose.',
       delay: '0.7s',
     },
   ];
