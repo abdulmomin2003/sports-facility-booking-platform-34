@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Football, Dumbbell, Trophy, Users } from 'lucide-react';
+import { Activity, Dumbbell, Trophy, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface FeaturesProps {
@@ -10,7 +10,7 @@ interface FeaturesProps {
 const Features: React.FC<FeaturesProps> = ({ className }) => {
   const features = [
     {
-      icon: <Football className="h-12 w-12 mb-4" />,
+      icon: <Activity className="h-12 w-12 mb-4" />,
       title: 'Team Sports',
       description: 'Football, basketball, volleyball and more. Find the perfect court or field for your team.',
       delay: '0.3s',
