@@ -33,20 +33,20 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         </span>
         
         <h1 className="heading-xl mb-6 animate-fade-in text-balance" style={{ animationDelay: '0.5s' }}>
-          Discover the Best Sports Facilities
+          Discover and Book Sports Facilities
         </h1>
         
         <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto animate-fade-in text-balance" style={{ animationDelay: '0.7s' }}>
-          Book the perfect facility for your game or training session
+          Find and book cricket fields, football courts, gaming lounges, and more. All in one place.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.9s' }}>
           <Link to="/products" className="px-6 py-3 bg-accent text-white font-medium rounded-lg transition-all hover:shadow-lg hover:-translate-y-1">
-            Book Now
+            Browse Facilities
           </Link>
-          <button onClick={scrollToContent} className="px-6 py-3 border border-white/30 rounded-lg font-medium transition-all hover:bg-white/10">
-            Explore Facilities
-          </button>
+          <Link to="/login" className="px-6 py-3 border border-white/30 rounded-lg font-medium transition-all hover:bg-white/10">
+            Sign In
+          </Link>
         </div>
       </div>
       
@@ -56,7 +56,7 @@ const Hero: React.FC<HeroProps> = ({ className }) => {
         style={{ animationDelay: '1.5s' }}
         aria-label="Scroll to content"
       >
-        <span className="text-sm mb-2 text-white/80">Discover</span>
+        <span className="text-sm mb-2 text-white/80">Explore</span>
         <ArrowDownIcon className="animate-bounce text-white" />
       </button>
     </section>

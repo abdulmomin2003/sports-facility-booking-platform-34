@@ -12,7 +12,7 @@ const Features: React.FC<FeaturesProps> = ({ className }) => {
     {
       icon: <Activity className="h-12 w-12 mb-4" />,
       title: 'Team Sports',
-      description: 'Football, basketball, volleyball and more. Find the perfect court or field for your team.',
+      description: 'Cricket, football, basketball, volleyball and more. Find the perfect court or field for your team.',
       delay: '0.3s',
     },
     {
@@ -23,14 +23,14 @@ const Features: React.FC<FeaturesProps> = ({ className }) => {
     },
     {
       icon: <Trophy className="h-12 w-12 mb-4" />,
-      title: 'Competitions',
-      description: 'Venues ideal for tournaments and competitive events with spectator accommodation.',
+      title: 'Recreational Games',
+      description: 'Snooker, pool, table tennis and other indoor games for casual fun and entertainment.',
       delay: '0.7s',
     },
     {
       icon: <Users className="h-12 w-12 mb-4" />,
-      title: 'Group Activities',
-      description: 'Spaces for group classes, recreational activities, and sports communities to gather.',
+      title: 'Gaming Lounges',
+      description: 'Cozy gaming spaces with modern setups for esports and casual gaming sessions.',
       delay: '0.9s',
     },
   ];
