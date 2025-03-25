@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Layout, Feather, Layers } from 'lucide-react';
+import { Football, Dumbbell, Trophy, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface FeaturesProps {
@@ -10,22 +10,28 @@ interface FeaturesProps {
 const Features: React.FC<FeaturesProps> = ({ className }) => {
   const features = [
     {
-      icon: <Layout className="h-8 w-8 mb-4" />,
-      title: 'Thoughtful Design',
-      description: 'Every element serves a purpose. Nothing is superfluous, everything is carefully considered.',
+      icon: <Football className="h-12 w-12 mb-4" />,
+      title: 'Team Sports',
+      description: 'Football, basketball, volleyball and more. Find the perfect court or field for your team.',
       delay: '0.3s',
     },
     {
-      icon: <Feather className="h-8 w-8 mb-4" />,
-      title: 'Premium Materials',
-      description: 'We source the finest materials to create products that are both beautiful and durable.',
+      icon: <Dumbbell className="h-12 w-12 mb-4" />,
+      title: 'Fitness & Training',
+      description: 'Modern gyms and specialized training facilities to help you reach your fitness goals.',
       delay: '0.5s',
     },
     {
-      icon: <Layers className="h-8 w-8 mb-4" />,
-      title: 'Functional Simplicity',
-      description: 'Complexity is removed, leaving only what\'s necessary to serve the product\'s purpose.',
+      icon: <Trophy className="h-12 w-12 mb-4" />,
+      title: 'Competitions',
+      description: 'Venues ideal for tournaments and competitive events with spectator accommodation.',
       delay: '0.7s',
+    },
+    {
+      icon: <Users className="h-12 w-12 mb-4" />,
+      title: 'Group Activities',
+      description: 'Spaces for group classes, recreational activities, and sports communities to gather.',
+      delay: '0.9s',
     },
   ];
 
@@ -33,19 +39,19 @@ const Features: React.FC<FeaturesProps> = ({ className }) => {
     <section id="features" className={cn("py-24 container", className)}>
       <div className="text-center mb-16">
         <span className="inline-block py-1 px-3 rounded-full bg-accent/10 text-accent-foreground text-sm font-medium mb-4">
-          Features
+          Categories
         </span>
-        <h2 className="heading-lg mb-4">Our Design Principles</h2>
+        <h2 className="heading-lg mb-4">Sports Facilities for Every Need</h2>
         <p className="text-foreground/70 max-w-2xl mx-auto text-balance">
-          We believe that good design is as little design as possible. Our products are simple, intuitive, and built to last.
+          Discover and book from our wide range of high-quality sports facilities for any activity or event.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {features.map((feature, index) => (
           <div 
             key={index} 
-            className="glass rounded-2xl p-8 flex flex-col items-center text-center opacity-0 animate-fade-in"
+            className="glass rounded-2xl p-8 flex flex-col items-center text-center opacity-0 animate-fade-in hover:shadow-lg transition-all hover:-translate-y-1 cursor-pointer"
             style={{ animationDelay: feature.delay }}
           >
             {feature.icon}
