@@ -81,7 +81,7 @@ const Navigation = () => {
                   : ""
               )}
             >
-              Logi
+              Login
             </Button>
             <Button size="sm" className="bg-accent hover:bg-accent/90">
               Register
