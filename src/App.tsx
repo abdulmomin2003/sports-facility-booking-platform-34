@@ -15,6 +15,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import BookingPage from "./pages/BookingPage";
+import OwnerDashboard from "./pages/owner/OwnerDashboard";
+import AddFacility from "./pages/owner/AddFacility";
+import EditFacility from "./pages/owner/EditFacility";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +30,7 @@ const App = () => (
         <Navigation />
         <main className="min-h-screen">
           <Routes>
+            {/* Customer Routes */}
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/facilities" element={<Facilities />} />
@@ -35,6 +39,12 @@ const App = () => (
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/book" element={<BookingPage />} />
+            
+            {/* Owner Routes */}
+            <Route path="/owner" element={<OwnerDashboard />} />
+            <Route path="/owner/add-facility" element={<AddFacility />} />
+            <Route path="/owner/edit-facility/:id" element={<EditFacility />} />
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
