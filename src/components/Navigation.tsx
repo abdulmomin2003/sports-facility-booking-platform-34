@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 
@@ -71,21 +71,26 @@ const Navigation = () => {
           </ul>
 
           <div className="ml-4 flex items-center space-x-2">
-            <Button
-              variant="outline"
-              size="sm"
-              className={cn(
-                "border",
-                location.pathname === "/login" && !scrolled
-                  ? "border-white/20 text-white hover:bg-white/10"
-                  : ""
-              )}
-            >
-              Login
-            </Button>
-            <Button size="sm" className="bg-accent hover:bg-accent/90">
-              Register
-            </Button>
+            <Link to="/login">
+              <Button
+                variant="outline"
+                size="sm"
+                className={cn(
+                  "border",
+                  location.pathname === "/" && !scrolled
+                    ? "border-white/20 text-white hover:bg-white/10"
+                    : ""
+                )}
+              >
+                Login
+              </Button>
+            </Link>
+            JBSAHVS
+            <Link to="/register">
+              <Button size="sm" className="bg-accent hover:bg-accent/90">
+                Register
+              </Button>
+            </Link>
           </div>
         </nav>
 
@@ -127,12 +132,16 @@ const Navigation = () => {
           </ul>
 
           <div className="flex flex-col gap-3 w-full max-w-xs">
-            <Button variant="outline" size="lg" className="w-full">
-              Login
-            </Button>
-            <Button size="lg" className="w-full bg-accent hover:bg-accent/90">
-              Register
-            </Button>
+            <Link to="/login" className="w-full" onClick={closeMenu}>
+              <Button variant="outline" size="lg" className="w-full">
+                Login
+              </Button>
+            </Link>
+            <Link to="/register" className="w-full" onClick={closeMenu}>
+              <Button size="lg" className="w-full bg-accent hover:bg-accent/90">
+                Register
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
