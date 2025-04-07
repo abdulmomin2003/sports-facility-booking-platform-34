@@ -85,7 +85,6 @@ const Navigation = () => {
                 Login
               </Button>
             </Link>
-            JBSAHVS
             <Link to="/register">
               <Button size="sm" className="bg-accent hover:bg-accent/90">
                 Register
