@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Facilities from "./pages/Facilities";
@@ -31,34 +32,36 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Navigation />
-        <main className="min-h-screen">
-          <Routes>
-            {/* Customer Routes */}
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/facilities" element={<Facilities />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/book" element={<BookingPage />} />
-            
-            {/* Owner Routes */}
-            <Route path="/owner" element={<OwnerDashboard />} />
-            <Route path="/owner/add-facility" element={<AddFacility />} />
-            <Route path="/owner/edit-facility/:id" element={<EditFacility />} />
-            
-            {/* Admin Routes */}
-            <Route path="/admin" element={<AdminDashboard />} />
-            <Route path="/admin/users" element={<ManageUsers />} />
-            <Route path="/admin/facilities" element={<ManageFacilities />} />
-            <Route path="/admin/settings" element={<SystemSettings />} />
-            
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
+        <AuthProvider>
+          <Navigation />
+          <main className="min-h-screen">
+            <Routes>
+              {/* Customer Routes */}
+              <Route path="/" element={<Index />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/facilities" element={<Facilities />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/book" element={<BookingPage />} />
+              
+              {/* Owner Routes */}
+              <Route path="/owner" element={<OwnerDashboard />} />
+              <Route path="/owner/add-facility" element={<AddFacility />} />
+              <Route path="/owner/edit-facility/:id" element={<EditFacility />} />
+              
+              {/* Admin Routes */}
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/users" element={<ManageUsers />} />
+              <Route path="/admin/facilities" element={<ManageFacilities />} />
+              <Route path="/admin/settings" element={<SystemSettings />} />
+              
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from 'sonner';
+import { authService } from '@/services/authService';
 
 const Register = () => {
   const [fullName, setFullName] = useState('');
@@ -14,7 +15,7 @@ const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (password !== confirmPassword) {
@@ -24,12 +25,15 @@ const Register = () => {
     
     setIsLoading(true);
     
-    // Simulate registration
-    setTimeout(() => {
+    try {
+      await authService.register({ fullName, email, password });
       toast.success('Account created successfully');
+      navigate('/dashboard');
+    } catch (error: any) {
+      toast.error(error.response?.data?.message || 'Registration failed. Please try again.');
+    } finally {
       setIsLoading(false);
-      navigate('/login');
-    }, 1500);
+    }
   };
 
   return (
