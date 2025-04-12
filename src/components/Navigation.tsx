@@ -1,8 +1,16 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -71,25 +79,41 @@ const Navigation = () => {
           </ul>
 
           <div className="ml-4 flex items-center space-x-2">
-            <Link to="/login">
-              <Button
-                variant="outline"
-                size="sm"
-                className={cn(
-                  "border",
-                  location.pathname === "/" && !scrolled
-                    ? "border-white/20 text-white hover:bg-white/10"
-                    : ""
-                )}
-              >
-                Login
-              </Button>
-            </Link>
-            <Link to="/register">
-              <Button size="sm" className="bg-accent hover:bg-accent/90">
-                Register
-              </Button>
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className={cn(
+                    "border",
+                    location.pathname === "/" && !scrolled
+                      ? "border-white/20 text-white hover:bg-white/10"
+                      : ""
+                  )}
+                >
+                  <Settings className="h-4 w-4 mr-2" /> Account
+                  <ChevronDown className="h-4 w-4 ml-1" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem asChild>
+                  <Link to="/dashboard" className="cursor-pointer w-full">My Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/owner" className="cursor-pointer w-full">Owner Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/admin" className="cursor-pointer w-full">Admin Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link to="/login" className="cursor-pointer w-full">Login</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/register" className="cursor-pointer w-full">Register</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </nav>
 
@@ -128,6 +152,34 @@ const Navigation = () => {
                 </Link>
               </li>
             ))}
+
+            <li>
+              <Link
+                to="/dashboard"
+                className="text-2xl text-foreground/70 hover:text-foreground"
+                onClick={closeMenu}
+              >
+                My Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/owner"
+                className="text-2xl text-foreground/70 hover:text-foreground"
+                onClick={closeMenu}
+              >
+                Owner Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/admin"
+                className="text-2xl text-foreground/70 hover:text-foreground"
+                onClick={closeMenu}
+              >
+                Admin Dashboard
+              </Link>
+            </li>
           </ul>
 
           <div className="flex flex-col gap-3 w-full max-w-xs">

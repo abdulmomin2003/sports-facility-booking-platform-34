@@ -18,6 +18,10 @@ import BookingPage from "./pages/BookingPage";
 import OwnerDashboard from "./pages/owner/OwnerDashboard";
 import AddFacility from "./pages/owner/AddFacility";
 import EditFacility from "./pages/owner/EditFacility";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import ManageUsers from "./pages/admin/ManageUsers";
+import ManageFacilities from "./pages/admin/ManageFacilities";
+import SystemSettings from "./pages/admin/SystemSettings";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +48,12 @@ const App = () => (
             <Route path="/owner" element={<OwnerDashboard />} />
             <Route path="/owner/add-facility" element={<AddFacility />} />
             <Route path="/owner/edit-facility/:id" element={<EditFacility />} />
+            
+            {/* Admin Routes */}
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/users" element={<ManageUsers />} />
+            <Route path="/admin/facilities" element={<ManageFacilities />} />
+            <Route path="/admin/settings" element={<SystemSettings />} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>
