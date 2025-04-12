@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from 'sonner';
+import { authService } from '@/services/authService';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -12,16 +13,19 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate authentication
-    setTimeout(() => {
+    try {
+      await authService.login({ email, password });
       toast.success('Successfully logged in');
-      setIsLoading(false);
       navigate('/dashboard');
-    }, 1500);
+    } catch (error: any) {
+      toast.error(error.response?.data?.message || 'Failed to login');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
