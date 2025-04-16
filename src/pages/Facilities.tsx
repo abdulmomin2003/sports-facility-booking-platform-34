@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { 
   Select,
@@ -11,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { toast } from 'sonner';
+import { Edit } from 'lucide-react';
 
 const Facilities = () => {
   const [location, setLocation] = useState('all');
@@ -156,14 +156,22 @@ const Facilities = () => {
                   </div>
                 </div>
                 
-                <Link to="/book">
-                  <Button 
-                    className="w-full bg-blue-500 hover:bg-blue-600" 
-                    onClick={() => handleBooking(facility.name)}
-                  >
-                    Book Now
-                  </Button>
-                </Link>
+                <div className="flex gap-2">
+                  <Link to={`/owner/edit-facility/${facility.id}`}>
+                    <Button variant="outline" className="flex items-center gap-2">
+                      <Edit className="h-4 w-4" />
+                      Edit
+                    </Button>
+                  </Link>
+                  <Link to="/book" className="flex-1">
+                    <Button 
+                      className="w-full" 
+                      onClick={() => handleBooking(facility.name)}
+                    >
+                      Book Now
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </Card>
           ))}
