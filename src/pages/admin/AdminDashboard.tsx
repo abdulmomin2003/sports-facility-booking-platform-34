@@ -1,7 +1,5 @@
 
 import { Activity, DollarSign, Users, Calendar, TrendingUp, TrendingDown } from "lucide-react";
-import { AdminSidebarWrapper } from "@/components/admin/AdminSidebar";
-import AdminHeader from "@/components/admin/AdminHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -37,22 +35,28 @@ const platformData = [
 
 const AdminDashboard = () => {
   return (
-    <AdminSidebarWrapper>
-      <div className="container py-6 space-y-6">
-        <AdminHeader 
-          title="Admin Dashboard" 
-          description="View and manage platform data and metrics."
-        />
-        
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {/* Stats Cards */}
+    <div className="pt-24 pb-20">
+      <div className="container mx-auto px-4">
+        <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Admin Dashboard</h1>
+            <p className="text-gray-600">View and manage platform data and metrics.</p>
+          </div>
+        </div>
+
+        {/* Statistics Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium">Total Users</CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">2,543</div>
+            <CardContent className="p-6">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-sm font-medium text-gray-500">Total Users</p>
+                  <h3 className="text-2xl font-bold mt-1">2,543</h3>
+                </div>
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Users className="h-6 w-6 text-blue-600" />
+                </div>
+              </div>
               <p className="text-xs text-muted-foreground mt-1">
                 <span className="text-green-500 inline-flex items-center">
                   <TrendingUp className="h-3 w-3 mr-1" /> +12%
@@ -63,12 +67,16 @@ const AdminDashboard = () => {
           </Card>
           
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium">Revenue</CardTitle>
-              <DollarSign className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">$18,249</div>
+            <CardContent className="p-6">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-sm font-medium text-gray-500">Revenue</p>
+                  <h3 className="text-2xl font-bold mt-1">$18,249</h3>
+                </div>
+                <div className="bg-green-100 p-3 rounded-full">
+                  <DollarSign className="h-6 w-6 text-green-600" />
+                </div>
+              </div>
               <p className="text-xs text-muted-foreground mt-1">
                 <span className="text-green-500 inline-flex items-center">
                   <TrendingUp className="h-3 w-3 mr-1" /> +5.2%
@@ -79,12 +87,16 @@ const AdminDashboard = () => {
           </Card>
           
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium">Bookings</CardTitle>
-              <Calendar className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">1,382</div>
+            <CardContent className="p-6">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-sm font-medium text-gray-500">Bookings</p>
+                  <h3 className="text-2xl font-bold mt-1">1,382</h3>
+                </div>
+                <div className="bg-purple-100 p-3 rounded-full">
+                  <Calendar className="h-6 w-6 text-purple-600" />
+                </div>
+              </div>
               <p className="text-xs text-muted-foreground mt-1">
                 <span className="text-red-500 inline-flex items-center">
                   <TrendingDown className="h-3 w-3 mr-1" /> -2.3%
@@ -95,12 +107,16 @@ const AdminDashboard = () => {
           </Card>
           
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium">Active Now</CardTitle>
-              <Activity className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">89</div>
+            <CardContent className="p-6">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-sm font-medium text-gray-500">Active Now</p>
+                  <h3 className="text-2xl font-bold mt-1">89</h3>
+                </div>
+                <div className="bg-amber-100 p-3 rounded-full">
+                  <Activity className="h-6 w-6 text-amber-600" />
+                </div>
+              </div>
               <p className="text-xs text-muted-foreground mt-1">
                 <span className="text-green-500 inline-flex items-center">
                   <TrendingUp className="h-3 w-3 mr-1" /> +9%
@@ -108,6 +124,51 @@ const AdminDashboard = () => {
                 from average
               </p>
             </CardContent>
+          </Card>
+        </div>
+        
+        {/* Navigation Cards - Sidebar Items as Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 mb-8">
+          <Card className="hover:shadow-md transition-shadow">
+            <Link to="/admin/users">
+              <CardContent className="p-6 flex items-center space-x-4">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Users className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Manage Users</h3>
+                  <p className="text-sm text-gray-500">View and manage user accounts</p>
+                </div>
+              </CardContent>
+            </Link>
+          </Card>
+          
+          <Card className="hover:shadow-md transition-shadow">
+            <Link to="/admin/facilities">
+              <CardContent className="p-6 flex items-center space-x-4">
+                <div className="bg-purple-100 p-3 rounded-full">
+                  <BookOpen className="h-6 w-6 text-purple-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Manage Facilities</h3>
+                  <p className="text-sm text-gray-500">View and manage sports facilities</p>
+                </div>
+              </CardContent>
+            </Link>
+          </Card>
+          
+          <Card className="hover:shadow-md transition-shadow">
+            <Link to="/admin/settings">
+              <CardContent className="p-6 flex items-center space-x-4">
+                <div className="bg-green-100 p-3 rounded-full">
+                  <Settings className="h-6 w-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">System Settings</h3>
+                  <p className="text-sm text-gray-500">Configure platform settings</p>
+                </div>
+              </CardContent>
+            </Link>
           </Card>
         </div>
         
@@ -181,8 +242,11 @@ const AdminDashboard = () => {
           </TabsContent>
         </Tabs>
       </div>
-    </AdminSidebarWrapper>
+    </div>
   );
 };
+
+import { Link } from "react-router-dom";
+import { BookOpen, Settings } from "lucide-react";
 
 export default AdminDashboard;
