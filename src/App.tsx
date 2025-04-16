@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -23,6 +22,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import ManageUsers from "./pages/admin/ManageUsers";
 import ManageFacilities from "./pages/admin/ManageFacilities";
 import SystemSettings from "./pages/admin/SystemSettings";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +45,7 @@ const App = () => (
               <Route path="/register" element={<Register />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/book" element={<BookingPage />} />
+              <Route path="/profile" element={<Profile />} />
               
               {/* Owner Routes */}
               <Route path="/owner" element={<OwnerDashboard />} />
