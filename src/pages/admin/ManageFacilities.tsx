@@ -1,6 +1,4 @@
-
 import { useState } from "react";
-import { AdminSidebarWrapper } from "@/components/admin/AdminSidebar";
 import AdminHeader from "@/components/admin/AdminHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -43,7 +41,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-// Define the Facility interface
 interface Facility {
   id: string;
   name: string;
@@ -54,7 +51,6 @@ interface Facility {
   createdDate: string;
 }
 
-// Sample facility data
 const facilities: Facility[] = [
   {
     id: "1",
@@ -103,7 +99,6 @@ const facilities: Facility[] = [
   },
 ];
 
-// Filter facilities based on search, category, and status
 const filterFacilities = (
   facilities: Facility[],
   searchTerm: string,
@@ -184,7 +179,7 @@ const ManageFacilities = () => {
   };
 
   return (
-    <AdminSidebarWrapper>
+    <div className="min-h-screen bg-background">
       <div className="container py-6 space-y-6">
         <AdminHeader
           title="Facility Management"
@@ -344,7 +339,7 @@ const ManageFacilities = () => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-    </AdminSidebarWrapper>
+    </div>
   );
 };
 

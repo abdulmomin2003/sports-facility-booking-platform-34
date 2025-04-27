@@ -1,6 +1,4 @@
-
 import { useState } from "react";
-import { AdminSidebarWrapper } from "@/components/admin/AdminSidebar";
 import AdminHeader from "@/components/admin/AdminHeader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -82,7 +80,7 @@ const SystemSettings = () => {
   };
 
   return (
-    <AdminSidebarWrapper>
+    <div className="min-h-screen bg-background">
       <div className="container py-6 space-y-6">
         <AdminHeader
           title="System Settings"
@@ -396,7 +394,7 @@ const SystemSettings = () => {
           </TabsContent>
         </Tabs>
       </div>
-    </AdminSidebarWrapper>
+    </div>
   );
 };
 
